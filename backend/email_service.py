@@ -97,6 +97,11 @@ def _render_html(
     upper_dest = destination.upper()
     upper_recipient = recipient_name.upper()
 
+    # Pick a nice short handwritten "signer" for the torn tape. If the organizer's first
+    # word is a filler like "The", drop it and use the next word. Fall back to "the crew".
+    _tokens = [t for t in organizer_name.strip().split() if t.lower() not in {"the", "a", "an"}]
+    tape_signer = _tokens[0] if _tokens else "the crew"
+
     # Style tag with @media for mobile stacking (Gmail web supports this)
     styles = """
       @media only screen and (max-width: 600px) {
@@ -227,7 +232,7 @@ def _render_html(
                 <tr>
                   <td style="background:#FFE8A8;padding:10px 22px;transform:rotate(-2deg);box-shadow:0 4px 14px rgba(44,36,22,0.10);border-left:1px dashed rgba(44,36,22,0.15);border-right:1px dashed rgba(44,36,22,0.15);">
                     <div style="font-family:'Caveat','Homemade Apple',cursive;font-size:26px;color:{INK};line-height:1.1;">
-                      can't wait!! &mdash; {organizer_name.split()[0]}
+                      can't wait!! &mdash; {tape_signer}
                     </div>
                   </td>
                 </tr>
