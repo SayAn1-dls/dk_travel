@@ -120,8 +120,20 @@ class TestCollage:
         for c in data["dominant_colors"]:
             assert isinstance(c, str) and c.startswith("#") and len(c) == 7
         assert data["collage_base64"].startswith("data:image/png;base64,")
-        assert "/api/static/collages/" in data["collage_url"]
-        assert data["collage_url"].endswith(".png")
+        # ---- URL SHAPE: MUST be host-relative ----
+        url = data["collage_url"]
+        assert url.startswith("/api/static/collages/"), (
+            f"collage_url must be host-relative, got: {url!r}"
+        )
+        assert "http://" not in url and "https://" not in url, (
+            f"collage_url must NOT contain scheme/hostname, got: {url!r}"
+        )
+        assert url.endswith(".png")
+        # Filename must match collage_id
+        assert isinstance(data["collage_id"], str) and len(data["collage_id"]) > 0
+        assert url == f"/api/static/collages/{data['collage_id']}.png", (
+            f"filename mismatch: url={url!r} collage_id={data['collage_id']!r}"
+        )
         assert 0.0 <= data["confidence"] <= 1.0
 
     def _validate_dimensions(self, b64_data_url):
@@ -135,9 +147,10 @@ class TestCollage:
         data = r.json()
         self._validate_response(data, "polaroid_scrapbook")
         self._validate_dimensions(data["collage_base64"])
-        # verify URL is reachable and serves image/png
-        rr = requests.get(data["collage_url"], timeout=30)
-        assert rr.status_code == 200
+        # verify RELATIVE URL is reachable when concatenated with BASE_URL
+        full_url = f"{BASE_URL}{data['collage_url']}"
+        rr = requests.get(full_url, timeout=30)
+        assert rr.status_code == 200, f"GET {full_url} -> {rr.status_code}"
         assert rr.headers.get("content-type", "").startswith("image/png")
         img = Image.open(io.BytesIO(rr.content))
         assert img.size == (1080, 1920)
@@ -181,3 +194,9 @@ class TestCollage:
         data = r.json()
         self._validate_response(data, template)
         self._validate_dimensions(data["collage_base64"])
+        # For magazine template, also verify reachability via BASE_URL concat
+        if template == "magazine":
+            full_url = f"{BASE_URL}{data['collage_url']}"
+            rr = requests.get(full_url, timeout=30)
+            assert rr.status_code == 200, f"GET {full_url} -> {rr.status_code}"
+            assert rr.headers.get("content-type", "").startswith("image/png")

@@ -306,7 +306,11 @@ function CollageSection() {
               <div className="mt-2 text-xs opacity-70 break-all">
                 <a
                   data-testid="collage-open-link"
-                  href={result.collage_url}
+                  href={
+                    result.collage_url.startsWith("http")
+                      ? result.collage_url
+                      : `${BACKEND_URL}${result.collage_url}`
+                  }
                   target="_blank"
                   rel="noreferrer"
                   style={{ color: "#C65D3A" }}

@@ -15,7 +15,7 @@ from pathlib import Path
 from typing import List, Literal
 
 from dotenv import load_dotenv
-from fastapi import APIRouter, FastAPI, File, HTTPException, Query, Request, UploadFile
+from fastapi import APIRouter, FastAPI, File, HTTPException, Query, UploadFile
 from fastapi.staticfiles import StaticFiles
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
@@ -50,6 +50,17 @@ db = client[os.environ["DB_NAME"]]
 STATIC_DIR = ROOT_DIR / "static"
 COLLAGE_DIR = STATIC_DIR / "collages"
 COLLAGE_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def static_url(*path_parts: str) -> str:
+    """Return a host-relative URL under `/api/static/...`.
+
+    Always return a relative path — never absolute — so the URL works on any host
+    (public preview, internal cluster hostname, localhost). Clients (browser or
+    otherwise) can resolve it against whatever base they used to reach the API.
+    """
+    clean = "/".join(p.strip("/") for p in path_parts if p)
+    return f"/api/static/{clean}"
 
 # ---------- app ----------
 app = FastAPI(
@@ -153,7 +164,6 @@ async def send_invite_email_route(body: InviteEmailRequest):
 
 @api_router.post("/test/generate-collage", response_model=CollageResponse)
 async def generate_collage_route(
-    request: Request,
     files: List[UploadFile] = File(..., description="3 to 5 photos"),
     template: TemplateName = Query("polaroid_scrapbook"),
 ):
@@ -190,9 +200,9 @@ async def generate_collage_route(
     collage_id, saved_path = save_collage(collage_img, COLLAGE_DIR)
     data_url = image_to_data_url(collage_img)
 
-    # Build absolute URL to the saved PNG
-    base = str(request.base_url).rstrip("/")
-    collage_url = f"{base}/api/static/collages/{collage_id}.png"
+    # Return a HOST-RELATIVE URL so it works on public, internal, and localhost
+    # (see static_url() docstring for rationale).
+    collage_url = static_url("collages", f"{collage_id}.png")
 
     return CollageResponse(
         vibe=vibe_info["vibe"],

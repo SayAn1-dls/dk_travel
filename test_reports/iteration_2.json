@@ -1,0 +1,20 @@
+{
+  "summary": "Backend-only re-test of the collage_url shape fix. Updated /app/backend/tests/backend_test.py to assert that `collage_url` is host-relative (starts with `/api/static/collages/`, contains no `http://`/`https://`/hostname, and filename equals `{collage_id}.png`). Also verified that concatenating `REACT_APP_BACKEND_URL + collage_url` returns HTTP 200 with content-type `image/png` and PNG dims 1080x1920. Ran the full pytest suite (13 tests): all passed in ~75s.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {"ui_bugs": [], "integration_issues": [], "design_issues": []},
+  "test_report_links": [
+    "/app/backend/tests/backend_test.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "static_url() helper is clean and reusable. Note: `/api/static` is mounted via app.mount BEFORE the api_router include — this is correct so the ingress `/api/*` routing continues to hit the backend for collage image GETs (verified by 200 image/png fetch through REACT_APP_BACKEND_URL)."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "not tested (per request)"},
+  "seed_data_creation": "Reused /tmp/test_photo_{1..5}.jpg from previous iteration. One real invite email sent to sayanbhatt2005@gmail.com.",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Tests now assert collage_url is host-relative and matches `/api/static/collages/{collage_id}.png`. Reachability is verified by prepending REACT_APP_BACKEND_URL. Coverage: all 6 templates (URL shape) + polaroid+magazine (reachability) + validation (2/6 photos, bad template) + email invite regression + invalid email 422. All 13 tests pass.",
+  "rca_of_the_issue": "Previously the endpoint built an absolute URL from `request.base_url` which resolved to the internal cluster hostname (unreachable externally). Fix introduces `static_url()` returning a host-relative path so clients can resolve it against whichever base host they used to reach the API. Verified across all 6 templates."
+}
