@@ -434,10 +434,8 @@ def _tpl_filmstrip(photos: List[Image.Image], caption: str, quote: str) -> Image
     strip = Image.new("RGBA", (strip_w, strip_h), (20, 15, 10, 255))
     sd = ImageDraw.Draw(strip)
 
-    # Sprocket holes
+    # Sprocket holes — evenly spaced
     hole_w, hole_h = 44, 60
-    for row in range(n + 2):
-        y = row * (frame_h + gap) // (n + 1) if False else int((row / (n + 1)) * (strip_h - 40)) + 20
     for row in range(n * 2 + 2):
         y = int(row * (strip_h - 60) / (n * 2 + 1)) + 30
         sd.rounded_rectangle((28, y, 28 + hole_w, y + hole_h), radius=8, fill=(0, 0, 0, 255))

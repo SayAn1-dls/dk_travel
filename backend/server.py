@@ -8,17 +8,14 @@ Two proof-of-concept endpoints under `/api`:
 from __future__ import annotations
 
 import base64
-import io
 import logging
 import os
-import uuid
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import List, Literal, Optional
+from typing import List, Literal
 
 from dotenv import load_dotenv
 from fastapi import APIRouter, FastAPI, File, HTTPException, Query, Request, UploadFile
-from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from motor.motor_asyncio import AsyncIOMotorClient
 from pydantic import BaseModel, ConfigDict, EmailStr, Field
