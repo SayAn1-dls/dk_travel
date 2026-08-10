@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import base64
 import json
 import logging
 import os
@@ -9,8 +10,6 @@ import random
 import re
 import uuid
 from typing import List
-
-from emergentintegrations.llm.chat import ImageContent, LlmChat, UserMessage
 
 from quotes import TRAVEL_QUOTES
 
@@ -73,31 +72,45 @@ async def analyze_photos(images_b64: List[str]) -> dict:
     Ask Gemini Vision to jointly analyze the photos and return {vibe, dominant_colors, caption, quote, confidence}.
     Falls back to sensible defaults if the model call or JSON parse fails.
     """
-    key = os.environ.get("EMERGENT_LLM_KEY")
+    key = os.environ.get("EMERGENT_LLM_KEY") or os.environ.get("GOOGLE_API_KEY")
     if not key:
-        return _fallback_vibe("EMERGENT_LLM_KEY not set")
-
-    session_id = f"vibe-{uuid.uuid4().hex[:12]}"
-    chat = LlmChat(
-        api_key=key,
-        session_id=session_id,
-        system_message=_PROMPT,
-    ).with_model("gemini", "gemini-2.5-flash")
-
-    file_contents = [ImageContent(image_base64=b) for b in images_b64]
-    user_msg = UserMessage(
-        text="Analyze these trip photos together and return the JSON described in the system message.",
-        file_contents=file_contents,
-    )
+        return _fallback_vibe("EMERGENT_LLM_KEY / GOOGLE_API_KEY not set")
 
     try:
-        reply = await chat.send_message(user_msg)
+        import google.generativeai as genai
+    except ImportError:
+        return _fallback_vibe("google-generativeai not installed")
+
+    genai.configure(api_key=key)
+    model = genai.GenerativeModel("gemini-2.0-flash")
+
+    # Build multimodal content parts
+    parts = []
+    for img_b64 in images_b64:
+        # Strip data URI prefix if present
+        if "," in img_b64 and img_b64.startswith("data:"):
+            img_b64 = img_b64.split(",", 1)[1]
+        try:
+            img_bytes = base64.b64decode(img_b64)
+        except Exception:
+            continue
+        parts.append({
+            "inline_data": {
+                "mime_type": "image/jpeg",
+                "data": base64.b64encode(img_bytes).decode(),
+            }
+        })
+    parts.append("Analyze these trip photos together and return the JSON described in the system message.")
+
+    try:
+        response = model.generate_content(
+            [{"role": "user", "parts": parts}],
+            generation_config={"temperature": 0.4},
+        )
+        reply = response.text
     except Exception as e:
         log.exception("Gemini vision call failed: %s", e)
         return _fallback_vibe(f"gemini call error: {e}")
-
-    if not isinstance(reply, str):
-        reply = str(reply)
 
     try:
         data = _extract_json(reply)
