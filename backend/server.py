@@ -130,11 +130,11 @@ async def root():
 
 @api_router.get("/health")
 async def health():
-    gmail_set = bool(os.environ.get("GMAIL_USER") and os.environ.get("GMAIL_APP_PASSWORD"))
+    resend_set = bool(os.environ.get("RESEND_API_KEY"))
     llm_set = bool(os.environ.get("EMERGENT_LLM_KEY"))
     return {
         "ok": True,
-        "gmail_configured": gmail_set,
+        "resend_configured": resend_set,
         "gemini_configured": llm_set,
         "templates": sorted(VALID_TEMPLATES),
     }
