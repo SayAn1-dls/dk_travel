@@ -41,10 +41,15 @@ logging.basicConfig(
 )
 log = logging.getLogger("wanderly")
 
-# ---------- Mongo ----------
-mongo_url = os.environ["MONGO_URL"]
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ["DB_NAME"]]
+# ---------- Mongo (optional — test endpoints work without it) ----------
+mongo_url = os.environ.get("MONGO_URL", "")
+if mongo_url:
+    client = AsyncIOMotorClient(mongo_url)
+    db = client[os.environ.get("DB_NAME", "wanderly")]
+else:
+    log.warning("MONGO_URL not set — database features disabled")
+    client = None
+    db = None
 
 # ---------- static dir ----------
 STATIC_DIR = ROOT_DIR / "static"
@@ -231,4 +236,5 @@ app.add_middleware(
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
-    client.close()
+    if client:
+        client.close()
