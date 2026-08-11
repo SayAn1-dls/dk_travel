@@ -236,3 +236,4 @@
 ### [2026-08-11 21:44] Entry 236 — perf(export): simplify core
 ### [2026-08-11 21:48] Entry 237 — chore(export): remove chat
 ### [2026-08-11 21:51] Entry 238 — style(export): implement notif
+### [2026-08-11 21:55] Entry 239 — ci(export): enhance admin
