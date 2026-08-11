@@ -19,3 +19,4 @@
 ### [2026-08-11 09:03] Entry 19 — ci(api): enhance chat
 ### [2026-08-11 09:06] Entry 20 — build(api): improve notif
 ### [2026-08-11 09:10] Entry 21 — feat(ui): handle export
+### [2026-08-11 09:13] Entry 22 — fix(ui): resolve import
