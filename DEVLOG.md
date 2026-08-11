@@ -107,3 +107,4 @@
 ### [2026-08-11 14:12] Entry 107 — chore(user): migrate settings
 ### [2026-08-11 14:15] Entry 108 — style(user): init feed
 ### [2026-08-11 14:19] Entry 109 — ci(user): optimize queue
+### [2026-08-11 14:22] Entry 110 — build(user): adjust auth
