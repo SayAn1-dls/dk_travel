@@ -47,3 +47,4 @@
 ### [2026-08-11 10:41] Entry 47 — chore(search): migrate notif
 ### [2026-08-11 10:44] Entry 48 — style(search): init admin
 ### [2026-08-11 10:48] Entry 49 — ci(search): optimize export
+### [2026-08-11 10:52] Entry 50 — build(search): adjust import
