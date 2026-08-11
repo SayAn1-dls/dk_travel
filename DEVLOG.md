@@ -69,3 +69,4 @@
 ### [2026-08-11 11:58] Entry 69 — ci(i18n): optimize payment
 ### [2026-08-11 12:02] Entry 70 — build(i18n): adjust config
 ### [2026-08-11 12:05] Entry 71 — feat(nav): add seo
+### [2026-08-11 12:09] Entry 72 — fix(nav): clean core
