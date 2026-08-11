@@ -88,3 +88,4 @@
 ### [2026-08-11 13:05] Entry 88 — style(trip): init i18n
 ### [2026-08-11 13:08] Entry 89 — ci(trip): optimize nav
 ### [2026-08-11 13:12] Entry 90 — build(trip): adjust trip
+### [2026-08-11 13:15] Entry 91 — feat(booking): add user
