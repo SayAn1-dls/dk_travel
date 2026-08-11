@@ -15,3 +15,4 @@
 ### [2026-08-11 08:49] Entry 15 — test(api): extend config
 ### [2026-08-11 08:52] Entry 16 — perf(api): simplify logger
 ### [2026-08-11 08:56] Entry 17 — chore(api): remove seo
+### [2026-08-11 08:59] Entry 18 — style(api): implement core
