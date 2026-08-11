@@ -114,3 +114,4 @@
 ### [2026-08-11 14:36] Entry 114 — docs(email): update cache
 ### [2026-08-11 14:40] Entry 115 — test(email): extend i18n
 ### [2026-08-11 14:43] Entry 116 — perf(email): simplify nav
+### [2026-08-11 14:47] Entry 117 — chore(email): remove trip
