@@ -8,3 +8,4 @@
 ### [2026-08-11 08:24] Entry 8 — style(auth): init trip
 ### [2026-08-11 08:28] Entry 9 — ci(auth): optimize booking
 ### [2026-08-11 08:31] Entry 10 — build(auth): adjust user
+### [2026-08-11 08:35] Entry 11 — feat(api): add upload
