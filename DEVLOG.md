@@ -130,3 +130,4 @@
 ### [2026-08-11 15:32] Entry 130 — build(upload): adjust admin
 ### [2026-08-11 15:36] Entry 131 — feat(map): add import
 ### [2026-08-11 15:39] Entry 132 — fix(map): clean media
+### [2026-08-11 15:43] Entry 133 — refactor(map): rework profile
