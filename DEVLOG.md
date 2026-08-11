@@ -154,3 +154,4 @@
 ### [2026-08-11 16:57] Entry 154 — docs(payment): update core
 ### [2026-08-11 17:00] Entry 155 — test(payment): extend chat
 ### [2026-08-11 17:04] Entry 156 — perf(payment): simplify notif
+### [2026-08-11 17:07] Entry 157 — chore(payment): remove admin
