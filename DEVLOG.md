@@ -156,3 +156,4 @@
 ### [2026-08-11 17:04] Entry 156 — perf(payment): simplify notif
 ### [2026-08-11 17:07] Entry 157 — chore(payment): remove admin
 ### [2026-08-11 17:11] Entry 158 — style(payment): implement export
+### [2026-08-11 17:14] Entry 159 — ci(payment): enhance import
