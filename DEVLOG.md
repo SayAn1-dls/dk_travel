@@ -81,3 +81,4 @@
 ### [2026-08-11 12:40] Entry 81 — feat(trip): handle queue
 ### [2026-08-11 12:44] Entry 82 — fix(trip): resolve auth
 ### [2026-08-11 12:47] Entry 83 — refactor(trip): fix api
+### [2026-08-11 12:51] Entry 84 — docs(trip): validate ui
