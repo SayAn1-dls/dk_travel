@@ -124,3 +124,4 @@
 ### [2026-08-11 15:11] Entry 124 — docs(upload): validate config
 ### [2026-08-11 15:15] Entry 125 — test(upload): rewrite logger
 ### [2026-08-11 15:18] Entry 126 — perf(upload): refactor seo
+### [2026-08-11 15:22] Entry 127 — chore(upload): migrate core
