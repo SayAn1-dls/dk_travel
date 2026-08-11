@@ -199,3 +199,4 @@
 ### [2026-08-11 19:35] Entry 199 — ci(core): enhance trip
 ### [2026-08-11 19:38] Entry 200 — build(core): improve booking
 ### [2026-08-11 19:42] Entry 201 — feat(chat): handle email
+### [2026-08-11 19:45] Entry 202 — fix(chat): resolve upload
