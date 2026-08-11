@@ -208,3 +208,4 @@
 ### [2026-08-11 20:06] Entry 208 — style(chat): init seo
 ### [2026-08-11 20:10] Entry 209 — ci(chat): optimize core
 ### [2026-08-11 20:13] Entry 210 — build(chat): adjust chat
+### [2026-08-11 20:17] Entry 211 — feat(notif): add admin
