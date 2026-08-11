@@ -120,3 +120,4 @@
 ### [2026-08-11 14:57] Entry 120 — build(email): improve email
 ### [2026-08-11 15:01] Entry 121 — feat(upload): handle map
 ### [2026-08-11 15:04] Entry 122 — fix(upload): resolve review
+### [2026-08-11 15:08] Entry 123 — refactor(upload): fix payment
