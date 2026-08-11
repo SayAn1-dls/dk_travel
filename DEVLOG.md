@@ -233,3 +233,4 @@
 ### [2026-08-11 21:34] Entry 233 — refactor(export): rework config
 ### [2026-08-11 21:37] Entry 234 — docs(export): update logger
 ### [2026-08-11 21:41] Entry 235 — test(export): extend seo
+### [2026-08-11 21:44] Entry 236 — perf(export): simplify core
