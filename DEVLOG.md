@@ -224,3 +224,4 @@
 ### [2026-08-11 21:02] Entry 224 — docs(admin): validate i18n
 ### [2026-08-11 21:06] Entry 225 — test(admin): rewrite nav
 ### [2026-08-11 21:09] Entry 226 — perf(admin): refactor trip
+### [2026-08-11 21:13] Entry 227 — chore(admin): migrate booking
