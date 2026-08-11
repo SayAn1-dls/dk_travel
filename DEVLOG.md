@@ -171,3 +171,4 @@
 ### [2026-08-11 17:56] Entry 171 — feat(logger): add trip
 ### [2026-08-11 18:00] Entry 172 — fix(logger): clean booking
 ### [2026-08-11 18:03] Entry 173 — refactor(logger): rework user
+### [2026-08-11 18:07] Entry 174 — docs(logger): update email
