@@ -4,3 +4,4 @@
 ### [2026-08-11 08:10] Entry 4 — docs(auth): validate search
 ### [2026-08-11 08:14] Entry 5 — test(auth): rewrite cache
 ### [2026-08-11 08:17] Entry 6 — perf(auth): refactor i18n
+### [2026-08-11 08:21] Entry 7 — chore(auth): migrate nav
