@@ -190,3 +190,4 @@
 ### [2026-08-11 19:03] Entry 190 — build(seo): adjust feed
 ### [2026-08-11 19:06] Entry 191 — feat(core): add auth
 ### [2026-08-11 19:10] Entry 192 — fix(core): clean api
+### [2026-08-11 19:14] Entry 193 — refactor(core): rework ui
