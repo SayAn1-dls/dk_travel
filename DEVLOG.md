@@ -144,3 +144,4 @@
 ### [2026-08-11 16:21] Entry 144 — docs(review): validate trip
 ### [2026-08-11 16:25] Entry 145 — test(review): rewrite booking
 ### [2026-08-11 16:29] Entry 146 — perf(review): refactor user
+### [2026-08-11 16:32] Entry 147 — chore(review): migrate email
