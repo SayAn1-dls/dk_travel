@@ -128,3 +128,4 @@
 ### [2026-08-11 15:25] Entry 128 — style(upload): init chat
 ### [2026-08-11 15:29] Entry 129 — ci(upload): optimize notif
 ### [2026-08-11 15:32] Entry 130 — build(upload): adjust admin
+### [2026-08-11 15:36] Entry 131 — feat(map): add import
