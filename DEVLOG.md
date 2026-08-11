@@ -211,3 +211,4 @@
 ### [2026-08-11 20:17] Entry 211 — feat(notif): add admin
 ### [2026-08-11 20:20] Entry 212 — fix(notif): clean export
 ### [2026-08-11 20:24] Entry 213 — refactor(notif): rework import
+### [2026-08-11 20:27] Entry 214 — docs(notif): update media
