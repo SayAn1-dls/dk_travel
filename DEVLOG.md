@@ -126,3 +126,4 @@
 ### [2026-08-11 15:18] Entry 126 — perf(upload): refactor seo
 ### [2026-08-11 15:22] Entry 127 — chore(upload): migrate core
 ### [2026-08-11 15:25] Entry 128 — style(upload): init chat
+### [2026-08-11 15:29] Entry 129 — ci(upload): optimize notif
