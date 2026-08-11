@@ -33,3 +33,4 @@
 ### [2026-08-11 09:52] Entry 33 — refactor(db): rework i18n
 ### [2026-08-11 09:55] Entry 34 — docs(db): update nav
 ### [2026-08-11 09:59] Entry 35 — test(db): extend trip
+### [2026-08-11 10:02] Entry 36 — perf(db): simplify booking
