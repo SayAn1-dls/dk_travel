@@ -85,3 +85,4 @@
 ### [2026-08-11 12:54] Entry 85 — test(trip): rewrite db
 ### [2026-08-11 12:58] Entry 86 — perf(trip): refactor search
 ### [2026-08-11 13:01] Entry 87 — chore(trip): migrate cache
+### [2026-08-11 13:05] Entry 88 — style(trip): init i18n
