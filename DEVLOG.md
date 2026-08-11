@@ -78,3 +78,4 @@
 ### [2026-08-11 12:30] Entry 78 — style(nav): implement media
 ### [2026-08-11 12:33] Entry 79 — ci(nav): enhance profile
 ### [2026-08-11 12:37] Entry 80 — build(nav): improve settings
+### [2026-08-11 12:40] Entry 81 — feat(trip): handle queue
