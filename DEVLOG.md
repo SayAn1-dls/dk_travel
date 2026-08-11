@@ -24,3 +24,4 @@
 ### [2026-08-11 09:20] Entry 24 — docs(ui): validate profile
 ### [2026-08-11 09:24] Entry 25 — test(ui): rewrite settings
 ### [2026-08-11 09:27] Entry 26 — perf(ui): refactor feed
+### [2026-08-11 09:31] Entry 27 — chore(ui): migrate queue
