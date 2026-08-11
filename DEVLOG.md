@@ -90,3 +90,4 @@
 ### [2026-08-11 13:12] Entry 90 — build(trip): adjust trip
 ### [2026-08-11 13:15] Entry 91 — feat(booking): add user
 ### [2026-08-11 13:19] Entry 92 — fix(booking): clean email
+### [2026-08-11 13:22] Entry 93 — refactor(booking): rework upload
