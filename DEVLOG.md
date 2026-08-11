@@ -49,3 +49,4 @@
 ### [2026-08-11 10:48] Entry 49 — ci(search): optimize export
 ### [2026-08-11 10:52] Entry 50 — build(search): adjust import
 ### [2026-08-11 10:55] Entry 51 — feat(cache): add profile
+### [2026-08-11 10:59] Entry 52 — fix(cache): clean settings
