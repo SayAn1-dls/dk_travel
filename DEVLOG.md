@@ -230,3 +230,4 @@
 ### [2026-08-11 21:23] Entry 230 — build(admin): adjust upload
 ### [2026-08-11 21:27] Entry 231 — feat(export): add review
 ### [2026-08-11 21:30] Entry 232 — fix(export): clean payment
+### [2026-08-11 21:34] Entry 233 — refactor(export): rework config
