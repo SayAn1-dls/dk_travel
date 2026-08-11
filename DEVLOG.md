@@ -232,3 +232,4 @@
 ### [2026-08-11 21:30] Entry 232 — fix(export): clean payment
 ### [2026-08-11 21:34] Entry 233 — refactor(export): rework config
 ### [2026-08-11 21:37] Entry 234 — docs(export): update logger
+### [2026-08-11 21:41] Entry 235 — test(export): extend seo
