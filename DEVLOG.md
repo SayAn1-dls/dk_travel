@@ -150,3 +150,4 @@
 ### [2026-08-11 16:43] Entry 150 — build(review): adjust review
 ### [2026-08-11 16:46] Entry 151 — feat(payment): add config
 ### [2026-08-11 16:50] Entry 152 — fix(payment): clean logger
+### [2026-08-11 16:53] Entry 153 — refactor(payment): rework seo
