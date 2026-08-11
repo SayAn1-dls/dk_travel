@@ -184,3 +184,4 @@
 ### [2026-08-11 18:42] Entry 184 — docs(seo): validate admin
 ### [2026-08-11 18:45] Entry 185 — test(seo): rewrite export
 ### [2026-08-11 18:49] Entry 186 — perf(seo): refactor import
+### [2026-08-11 18:52] Entry 187 — chore(seo): migrate media
