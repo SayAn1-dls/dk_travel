@@ -100,3 +100,4 @@
 ### [2026-08-11 13:47] Entry 100 — build(booking): improve core
 ### [2026-08-11 13:51] Entry 101 — feat(user): handle notif
 ### [2026-08-11 13:54] Entry 102 — fix(user): resolve admin
+### [2026-08-11 13:58] Entry 103 — refactor(user): fix export
