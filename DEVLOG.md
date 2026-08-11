@@ -21,3 +21,4 @@
 ### [2026-08-11 09:10] Entry 21 — feat(ui): handle export
 ### [2026-08-11 09:13] Entry 22 — fix(ui): resolve import
 ### [2026-08-11 09:17] Entry 23 — refactor(ui): fix media
+### [2026-08-11 09:20] Entry 24 — docs(ui): validate profile
