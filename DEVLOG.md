@@ -67,3 +67,4 @@
 ### [2026-08-11 11:51] Entry 67 — chore(i18n): migrate map
 ### [2026-08-11 11:55] Entry 68 — style(i18n): init review
 ### [2026-08-11 11:58] Entry 69 — ci(i18n): optimize payment
+### [2026-08-11 12:02] Entry 70 — build(i18n): adjust config
