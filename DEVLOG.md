@@ -169,3 +169,4 @@
 ### [2026-08-11 17:49] Entry 169 — ci(config): optimize cache
 ### [2026-08-11 17:53] Entry 170 — build(config): adjust i18n
 ### [2026-08-11 17:56] Entry 171 — feat(logger): add trip
+### [2026-08-11 18:00] Entry 172 — fix(logger): clean booking
