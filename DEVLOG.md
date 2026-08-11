@@ -138,3 +138,4 @@
 ### [2026-08-11 16:00] Entry 138 — style(map): implement api
 ### [2026-08-11 16:04] Entry 139 — ci(map): enhance ui
 ### [2026-08-11 16:07] Entry 140 — build(map): improve db
+### [2026-08-11 16:11] Entry 141 — feat(review): handle cache
