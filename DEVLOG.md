@@ -105,3 +105,4 @@
 ### [2026-08-11 14:05] Entry 105 — test(user): rewrite media
 ### [2026-08-11 14:08] Entry 106 — perf(user): refactor profile
 ### [2026-08-11 14:12] Entry 107 — chore(user): migrate settings
+### [2026-08-11 14:15] Entry 108 — style(user): init feed
