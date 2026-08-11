@@ -18,3 +18,4 @@
 ### [2026-08-11 08:59] Entry 18 — style(api): implement core
 ### [2026-08-11 09:03] Entry 19 — ci(api): enhance chat
 ### [2026-08-11 09:06] Entry 20 — build(api): improve notif
+### [2026-08-11 09:10] Entry 21 — feat(ui): handle export
