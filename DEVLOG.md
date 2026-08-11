@@ -11,3 +11,4 @@
 ### [2026-08-11 08:35] Entry 11 — feat(api): add upload
 ### [2026-08-11 08:38] Entry 12 — fix(api): clean map
 ### [2026-08-11 08:42] Entry 13 — refactor(api): rework review
+### [2026-08-11 08:45] Entry 14 — docs(api): update payment
