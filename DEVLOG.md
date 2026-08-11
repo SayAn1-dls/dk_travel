@@ -187,3 +187,4 @@
 ### [2026-08-11 18:52] Entry 187 — chore(seo): migrate media
 ### [2026-08-11 18:56] Entry 188 — style(seo): init profile
 ### [2026-08-11 18:59] Entry 189 — ci(seo): optimize settings
+### [2026-08-11 19:03] Entry 190 — build(seo): adjust feed
