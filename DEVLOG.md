@@ -164,3 +164,4 @@
 ### [2026-08-11 17:32] Entry 164 — docs(config): validate auth
 ### [2026-08-11 17:35] Entry 165 — test(config): rewrite api
 ### [2026-08-11 17:39] Entry 166 — perf(config): refactor ui
+### [2026-08-11 17:42] Entry 167 — chore(config): migrate db
