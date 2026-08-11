@@ -151,3 +151,4 @@
 ### [2026-08-11 16:46] Entry 151 — feat(payment): add config
 ### [2026-08-11 16:50] Entry 152 — fix(payment): clean logger
 ### [2026-08-11 16:53] Entry 153 — refactor(payment): rework seo
+### [2026-08-11 16:57] Entry 154 — docs(payment): update core
