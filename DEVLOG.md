@@ -134,3 +134,4 @@
 ### [2026-08-11 15:46] Entry 134 — docs(map): update settings
 ### [2026-08-11 15:50] Entry 135 — test(map): extend feed
 ### [2026-08-11 15:53] Entry 136 — perf(map): simplify queue
+### [2026-08-11 15:57] Entry 137 — chore(map): remove auth
