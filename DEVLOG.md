@@ -227,3 +227,4 @@
 ### [2026-08-11 21:13] Entry 227 — chore(admin): migrate booking
 ### [2026-08-11 21:16] Entry 228 — style(admin): init user
 ### [2026-08-11 21:20] Entry 229 — ci(admin): optimize email
+### [2026-08-11 21:23] Entry 230 — build(admin): adjust upload
