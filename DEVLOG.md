@@ -54,3 +54,4 @@
 ### [2026-08-11 11:06] Entry 54 — docs(cache): update queue
 ### [2026-08-11 11:09] Entry 55 — test(cache): extend auth
 ### [2026-08-11 11:13] Entry 56 — perf(cache): simplify api
+### [2026-08-11 11:16] Entry 57 — chore(cache): remove ui
