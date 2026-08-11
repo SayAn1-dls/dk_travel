@@ -17,3 +17,4 @@
 ### [2026-08-11 08:56] Entry 17 — chore(api): remove seo
 ### [2026-08-11 08:59] Entry 18 — style(api): implement core
 ### [2026-08-11 09:03] Entry 19 — ci(api): enhance chat
+### [2026-08-11 09:06] Entry 20 — build(api): improve notif
