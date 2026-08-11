@@ -109,3 +109,4 @@
 ### [2026-08-11 14:19] Entry 109 — ci(user): optimize queue
 ### [2026-08-11 14:22] Entry 110 — build(user): adjust auth
 ### [2026-08-11 14:26] Entry 111 — feat(email): add ui
+### [2026-08-11 14:29] Entry 112 — fix(email): clean db
