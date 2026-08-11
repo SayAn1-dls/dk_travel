@@ -118,3 +118,4 @@
 ### [2026-08-11 14:50] Entry 118 — style(email): implement booking
 ### [2026-08-11 14:54] Entry 119 — ci(email): enhance user
 ### [2026-08-11 14:57] Entry 120 — build(email): improve email
+### [2026-08-11 15:01] Entry 121 — feat(upload): handle map
