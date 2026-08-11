@@ -72,3 +72,4 @@
 ### [2026-08-11 12:09] Entry 72 — fix(nav): clean core
 ### [2026-08-11 12:12] Entry 73 — refactor(nav): rework chat
 ### [2026-08-11 12:16] Entry 74 — docs(nav): update notif
+### [2026-08-11 12:19] Entry 75 — test(nav): extend admin
