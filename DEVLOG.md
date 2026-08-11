@@ -31,3 +31,4 @@
 ### [2026-08-11 09:45] Entry 31 — feat(db): add search
 ### [2026-08-11 09:48] Entry 32 — fix(db): clean cache
 ### [2026-08-11 09:52] Entry 33 — refactor(db): rework i18n
+### [2026-08-11 09:55] Entry 34 — docs(db): update nav
