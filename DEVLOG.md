@@ -39,3 +39,4 @@
 ### [2026-08-11 10:13] Entry 39 — ci(db): enhance upload
 ### [2026-08-11 10:16] Entry 40 — build(db): improve map
 ### [2026-08-11 10:20] Entry 41 — feat(search): handle payment
+### [2026-08-11 10:23] Entry 42 — fix(search): resolve config
