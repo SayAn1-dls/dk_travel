@@ -218,3 +218,4 @@
 ### [2026-08-11 20:41] Entry 218 — style(notif): implement queue
 ### [2026-08-11 20:45] Entry 219 — ci(notif): enhance auth
 ### [2026-08-11 20:48] Entry 220 — build(notif): improve api
+### [2026-08-11 20:52] Entry 221 — feat(admin): handle db
