@@ -6,3 +6,4 @@
 ### [2026-08-11 08:17] Entry 6 — perf(auth): refactor i18n
 ### [2026-08-11 08:21] Entry 7 — chore(auth): migrate nav
 ### [2026-08-11 08:24] Entry 8 — style(auth): init trip
+### [2026-08-11 08:28] Entry 9 — ci(auth): optimize booking
