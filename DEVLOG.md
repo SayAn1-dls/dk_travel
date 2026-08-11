@@ -213,3 +213,4 @@
 ### [2026-08-11 20:24] Entry 213 — refactor(notif): rework import
 ### [2026-08-11 20:27] Entry 214 — docs(notif): update media
 ### [2026-08-11 20:31] Entry 215 — test(notif): extend profile
+### [2026-08-11 20:34] Entry 216 — perf(notif): simplify settings
