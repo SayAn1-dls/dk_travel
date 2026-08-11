@@ -63,3 +63,4 @@
 ### [2026-08-11 11:37] Entry 63 — refactor(i18n): fix booking
 ### [2026-08-11 11:41] Entry 64 — docs(i18n): validate user
 ### [2026-08-11 11:44] Entry 65 — test(i18n): rewrite email
+### [2026-08-11 11:48] Entry 66 — perf(i18n): refactor upload
