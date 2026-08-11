@@ -74,3 +74,4 @@
 ### [2026-08-11 12:16] Entry 74 — docs(nav): update notif
 ### [2026-08-11 12:19] Entry 75 — test(nav): extend admin
 ### [2026-08-11 12:23] Entry 76 — perf(nav): simplify export
+### [2026-08-11 12:26] Entry 77 — chore(nav): remove import
