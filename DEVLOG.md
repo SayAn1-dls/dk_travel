@@ -112,3 +112,4 @@
 ### [2026-08-11 14:29] Entry 112 — fix(email): clean db
 ### [2026-08-11 14:33] Entry 113 — refactor(email): rework search
 ### [2026-08-11 14:36] Entry 114 — docs(email): update cache
+### [2026-08-11 14:40] Entry 115 — test(email): extend i18n
