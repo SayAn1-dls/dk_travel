@@ -103,3 +103,4 @@
 ### [2026-08-11 13:58] Entry 103 — refactor(user): fix export
 ### [2026-08-11 14:01] Entry 104 — docs(user): validate import
 ### [2026-08-11 14:05] Entry 105 — test(user): rewrite media
+### [2026-08-11 14:08] Entry 106 — perf(user): refactor profile
