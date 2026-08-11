@@ -122,3 +122,4 @@
 ### [2026-08-11 15:04] Entry 122 — fix(upload): resolve review
 ### [2026-08-11 15:08] Entry 123 — refactor(upload): fix payment
 ### [2026-08-11 15:11] Entry 124 — docs(upload): validate config
+### [2026-08-11 15:15] Entry 125 — test(upload): rewrite logger
