@@ -167,3 +167,4 @@
 ### [2026-08-11 17:42] Entry 167 — chore(config): migrate db
 ### [2026-08-11 17:46] Entry 168 — style(config): init search
 ### [2026-08-11 17:49] Entry 169 — ci(config): optimize cache
+### [2026-08-11 17:53] Entry 170 — build(config): adjust i18n
