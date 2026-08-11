@@ -194,3 +194,4 @@
 ### [2026-08-11 19:17] Entry 194 — docs(core): update db
 ### [2026-08-11 19:21] Entry 195 — test(core): extend search
 ### [2026-08-11 19:24] Entry 196 — perf(core): simplify cache
+### [2026-08-11 19:28] Entry 197 — chore(core): remove i18n
