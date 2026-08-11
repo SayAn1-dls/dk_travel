@@ -13,3 +13,4 @@
 ### [2026-08-11 08:42] Entry 13 — refactor(api): rework review
 ### [2026-08-11 08:45] Entry 14 — docs(api): update payment
 ### [2026-08-11 08:49] Entry 15 — test(api): extend config
+### [2026-08-11 08:52] Entry 16 — perf(api): simplify logger
