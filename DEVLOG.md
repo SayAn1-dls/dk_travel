@@ -173,3 +173,4 @@
 ### [2026-08-11 18:03] Entry 173 — refactor(logger): rework user
 ### [2026-08-11 18:07] Entry 174 — docs(logger): update email
 ### [2026-08-11 18:10] Entry 175 — test(logger): extend upload
+### [2026-08-11 18:14] Entry 176 — perf(logger): simplify map
