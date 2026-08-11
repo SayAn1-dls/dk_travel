@@ -64,3 +64,4 @@
 ### [2026-08-11 11:41] Entry 64 — docs(i18n): validate user
 ### [2026-08-11 11:44] Entry 65 — test(i18n): rewrite email
 ### [2026-08-11 11:48] Entry 66 — perf(i18n): refactor upload
+### [2026-08-11 11:51] Entry 67 — chore(i18n): migrate map
