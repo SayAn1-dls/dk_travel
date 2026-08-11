@@ -132,3 +132,4 @@
 ### [2026-08-11 15:39] Entry 132 — fix(map): clean media
 ### [2026-08-11 15:43] Entry 133 — refactor(map): rework profile
 ### [2026-08-11 15:46] Entry 134 — docs(map): update settings
+### [2026-08-11 15:50] Entry 135 — test(map): extend feed
