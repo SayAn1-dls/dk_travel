@@ -91,3 +91,4 @@
 ### [2026-08-11 13:15] Entry 91 — feat(booking): add user
 ### [2026-08-11 13:19] Entry 92 — fix(booking): clean email
 ### [2026-08-11 13:22] Entry 93 — refactor(booking): rework upload
+### [2026-08-11 13:26] Entry 94 — docs(booking): update map
