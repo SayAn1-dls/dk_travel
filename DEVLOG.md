@@ -12,3 +12,4 @@
 ### [2026-08-11 08:38] Entry 12 — fix(api): clean map
 ### [2026-08-11 08:42] Entry 13 — refactor(api): rework review
 ### [2026-08-11 08:45] Entry 14 — docs(api): update payment
+### [2026-08-11 08:49] Entry 15 — test(api): extend config
