@@ -235,3 +235,4 @@
 ### [2026-08-11 21:41] Entry 235 — test(export): extend seo
 ### [2026-08-11 21:44] Entry 236 — perf(export): simplify core
 ### [2026-08-11 21:48] Entry 237 — chore(export): remove chat
+### [2026-08-11 21:51] Entry 238 — style(export): implement notif
