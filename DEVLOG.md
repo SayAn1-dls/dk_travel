@@ -178,3 +178,4 @@
 ### [2026-08-11 18:21] Entry 178 — style(logger): implement payment
 ### [2026-08-11 18:24] Entry 179 — ci(logger): enhance config
 ### [2026-08-11 18:28] Entry 180 — build(logger): improve logger
+### [2026-08-11 18:31] Entry 181 — feat(seo): handle core
