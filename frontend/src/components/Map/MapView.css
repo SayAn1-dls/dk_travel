@@ -1,0 +1,153 @@
+.map-container {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.map-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.map-loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #f5f7fa;
+  z-index: 10;
+}
+
+.map-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #2196f3;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.map-info-card {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  max-width: 360px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 5;
+}
+
+.map-info-card h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #1a1a1a;
+}
+
+.map-info-card p {
+  margin: 0 0 12px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.map-info-card .distance {
+  color: #2196f3;
+  font-weight: 600;
+}
+
+.map-info-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.map-info-actions .btn-primary {
+  flex: 1;
+  padding: 8px 16px;
+  background: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.map-info-actions .btn-primary:hover {
+  background: #1976d2;
+}
+
+.map-info-actions .btn-secondary {
+  flex: 1;
+  padding: 8px 16px;
+  background: transparent;
+  color: #2196f3;
+  border: 1px solid #2196f3;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+
+.map-info-actions .btn-secondary:hover {
+  background: #e3f2fd;
+}
+
+.map-controls {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 5;
+}
+
+.map-btn {
+  width: 36px;
+  height: 36px;
+  background: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.map-btn:hover {
+  background: #f0f0f0;
+}
+
+@media (max-width: 768px) {
+  .map-container {
+    height: 350px;
+    border-radius: 8px;
+  }
+
+  .map-info-card {
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: none;
+  }
+}
