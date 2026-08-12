@@ -1,81 +1,149 @@
-"""Unit tests for BookingService."""
-
+"""Tests for the booking service."""
 import pytest
 from datetime import datetime, timedelta
-from unittest.mock import AsyncMock, patch, MagicMock
-from bson import ObjectId
+from unittest.mock import AsyncMock, MagicMock
+from app.services.booking_service import (
+    BookingService,
+    BookingStatus,
+    PaymentMethod,
+    Booking,
+)
 
-from backend.services.booking_service import BookingService
+
+@pytest.fixture
+def mock_db():
+    return AsyncMock()
 
 
-class TestBookingService:
-    """Tests for the BookingService class."""
+@pytest.fixture
+def mock_payment():
+    gateway = AsyncMock()
+    gateway.charge.return_value = MagicMock(success=True)
+    gateway.refund.return_value = MagicMock(success=True)
+    return gateway
 
-    def setup_method(self):
-        self.service = BookingService()
 
-    @pytest.mark.asyncio
-    async def test_create_booking_invalid_dates(self):
-        """Should raise ValueError when check-out is before check-in."""
-        check_in = datetime.utcnow() + timedelta(days=5)
-        check_out = datetime.utcnow() + timedelta(days=2)
+@pytest.fixture
+def booking_service(mock_db, mock_payment):
+    return BookingService(mock_db, mock_payment)
 
-        with pytest.raises(ValueError, match="Check-out date must be after check-in"):
-            await self.service.create_booking(
-                user_id="user-1",
-                destination_id="dest-1",
-                check_in=check_in,
-                check_out=check_out,
-            )
 
-    @pytest.mark.asyncio
-    async def test_create_booking_invalid_guests(self):
-        """Should raise ValueError for invalid guest count."""
-        check_in = datetime.utcnow() + timedelta(days=1)
-        check_out = datetime.utcnow() + timedelta(days=3)
+@pytest.mark.asyncio
+async def test_create_booking_success(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=7)
+    check_out = check_in + timedelta(days=3)
 
-        with pytest.raises(ValueError, match="Guest count must be between"):
-            await self.service.create_booking(
-                user_id="user-1",
-                destination_id="dest-1",
-                check_in=check_in,
-                check_out=check_out,
-                guests=15,
-            )
+    booking = await booking_service.create_booking(
+        user_id="user123",
+        destination_id="dest456",
+        check_in=check_in,
+        check_out=check_out,
+        guests=2,
+    )
 
-    @pytest.mark.asyncio
-    async def test_create_booking_success(self, mock_db):
-        """Should create a booking successfully with valid data."""
-        mock_collection = AsyncMock()
-        mock_collection.insert_one = AsyncMock(
-            return_value=MagicMock(inserted_id=ObjectId())
+    assert booking.user_id == "user123"
+    assert booking.destination_id == "dest456"
+    assert booking.status == BookingStatus.PENDING
+    assert booking.guests == 2
+    assert booking.total_price > 0
+
+
+@pytest.mark.asyncio
+async def test_create_booking_invalid_dates(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=7)
+    check_out = check_in - timedelta(days=1)
+
+    with pytest.raises(ValueError, match="Check-in must be before check-out"):
+        await booking_service.create_booking(
+            user_id="user123",
+            destination_id="dest456",
+            check_in=check_in,
+            check_out=check_out,
         )
 
-        with patch.object(self.service, '_get_collection', return_value=mock_collection):
-            check_in = datetime.utcnow() + timedelta(days=1)
-            check_out = datetime.utcnow() + timedelta(days=4)
 
-            result = await self.service.create_booking(
-                user_id="user-1",
-                destination_id="dest-1",
-                check_in=check_in,
-                check_out=check_out,
-                guests=2,
-                special_requests="Early check-in",
-            )
+@pytest.mark.asyncio
+async def test_create_booking_past_date(booking_service):
+    check_in = datetime.utcnow() - timedelta(days=1)
+    check_out = datetime.utcnow() + timedelta(days=2)
 
-            assert result is not None
-            assert result["user_id"] == "user-1"
-            assert result["guests"] == 2
-            assert result["nights"] == 3
-            mock_collection.insert_one.assert_called_once()
+    with pytest.raises(ValueError, match="cannot be in the past"):
+        await booking_service.create_booking(
+            user_id="user123",
+            destination_id="dest456",
+            check_in=check_in,
+            check_out=check_out,
+        )
 
-    @pytest.mark.asyncio
-    async def test_get_booking_not_found(self):
-        """Should return None when booking doesn't exist."""
-        mock_collection = AsyncMock()
-        mock_collection.find_one = AsyncMock(return_value=None)
 
-        with patch.object(self.service, '_get_collection', return_value=mock_collection):
-            result = await self.service.get_booking(str(ObjectId()))
-            assert result is None
+@pytest.mark.asyncio
+async def test_confirm_booking(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=7)
+    check_out = check_in + timedelta(days=3)
+
+    booking = await booking_service.create_booking(
+        user_id="user123",
+        destination_id="dest456",
+        check_in=check_in,
+        check_out=check_out,
+    )
+
+    confirmed = await booking_service.confirm_booking(
+        booking.id, PaymentMethod.UPI
+    )
+    assert confirmed.status == BookingStatus.CONFIRMED
+    assert confirmed.payment_method == PaymentMethod.UPI
+
+
+@pytest.mark.asyncio
+async def test_cancel_booking_full_refund(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=14)
+    check_out = check_in + timedelta(days=3)
+
+    booking = await booking_service.create_booking(
+        user_id="user123",
+        destination_id="dest456",
+        check_in=check_in,
+        check_out=check_out,
+    )
+    await booking_service.confirm_booking(booking.id, PaymentMethod.CREDIT_CARD)
+    cancelled = await booking_service.cancel_booking(booking.id)
+
+    assert cancelled.status == BookingStatus.REFUNDED
+
+
+@pytest.mark.asyncio
+async def test_get_user_bookings(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=7)
+    check_out = check_in + timedelta(days=2)
+
+    await booking_service.create_booking(
+        user_id="user123",
+        destination_id="dest1",
+        check_in=check_in,
+        check_out=check_out,
+    )
+    await booking_service.create_booking(
+        user_id="user123",
+        destination_id="dest2",
+        check_in=check_in + timedelta(days=10),
+        check_out=check_out + timedelta(days=10),
+    )
+
+    bookings = await booking_service.get_user_bookings("user123")
+    assert len(bookings) == 2
+
+
+@pytest.mark.asyncio
+async def test_invalid_guest_count(booking_service):
+    check_in = datetime.utcnow() + timedelta(days=7)
+    check_out = check_in + timedelta(days=2)
+
+    with pytest.raises(ValueError, match="Guests must be between"):
+        await booking_service.create_booking(
+            user_id="user123",
+            destination_id="dest456",
+            check_in=check_in,
+            check_out=check_out,
+            guests=15,
+        )
