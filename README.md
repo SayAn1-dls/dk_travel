@@ -1,164 +1,124 @@
-# 🌍 Wanderly — AI-Powered Travel Companion
+# DK Travel 🌍✈️
 
-[![CI](https://github.com/SayAn1-dls/dk_travel/actions/workflows/ci.yml/badge.svg)](https://github.com/SayAn1-dls/dk_travel/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![React 18](https://img.shields.io/badge/React-18-61DAFB.svg)](https://reactjs.org/)
+A full-stack travel planning and booking platform built with FastAPI and React.
 
-> Plan smarter. Travel better. Share memories beautifully.
+## Features
 
-Wanderly is a full-stack travel platform that helps users discover destinations, plan itineraries, search flights and hotels, and create stunning photo collages of their journeys — all powered by AI.
+- **Destination Discovery**: Browse and search 1000+ travel destinations across India
+- **Smart Booking**: Seamless booking with multiple payment methods (UPI, Cards, Net Banking)
+- **Trip Itineraries**: AI-powered itinerary planning with budget tracking
+- **Reviews & Ratings**: Community-driven reviews with photo uploads
+- **Weather Integration**: Real-time weather data and best travel window recommendations
+- **Interactive Maps**: Visual destination exploration with distance calculations
+- **Notifications**: Multi-channel alerts (Email, SMS, Push) for bookings and reminders
+- **User Profiles**: Personalized travel preferences, badges, and travel levels
 
----
+## Tech Stack
 
-## 🏗️ Architecture
+### Backend
+- **Framework**: FastAPI (Python 3.11)
+- **Database**: PostgreSQL 15
+- **Cache**: Redis 7
+- **ORM**: SQLAlchemy + Alembic migrations
+- **Auth**: JWT with bcrypt password hashing
+- **Testing**: pytest + pytest-asyncio
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                     WANDERLY PLATFORM                   │
-├─────────────────────────────────────────────────────────┤
-│                                                         │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │   React SPA  │  │ React Native │  │   Admin UI   │  │
-│  │  (frontend/) │  │  (mobile/)   │  │  (planned)   │  │
-│  └──────┬───────┘  └──────┬───────┘  └──────┬───────┘  │
-│         │                 │                 │          │
-│         └────────┬────────┴────────┬────────┘          │
-│                  │    REST API     │                    │
-│         ┌────────▼─────────────────▼────────┐          │
-│         │        FastAPI Backend             │          │
-│         │  ┌─────────┐  ┌────────────────┐  │          │
-│         │  │ Routes   │  │  Services      │  │          │
-│         │  │ hotels   │  │  collage_svc   │  │          │
-│         │  │ flights  │  │  email_svc     │  │          │
-│         │  │ itinerary│  │  vibe_svc      │  │          │
-│         │  │ reviews  │  │  weather_svc   │  │          │
-│         │  │ blog     │  │  currency_svc  │  │          │
-│         │  └─────────┘  └────────────────┘  │          │
-│         └────────┬──────────────────────────┘          │
-│                  │                                      │
-│         ┌────────▼────────┐  ┌──────────────┐          │
-│         │    MongoDB      │  │  Gemini AI   │          │
-│         │  (Motor async)  │  │  (vibe/photo)│          │
-│         └─────────────────┘  └──────────────┘          │
-│                                                         │
-└─────────────────────────────────────────────────────────┘
-```
+### Frontend
+- **Framework**: React 18
+- **State Management**: Context API + useReducer
+- **Routing**: React Router v6
+- **HTTP Client**: Axios with interceptors
+- **Styling**: CSS Modules
 
----
+### Infrastructure
+- **Containerization**: Docker + Docker Compose
+- **CI/CD**: GitHub Actions
+- **Reverse Proxy**: Nginx
 
-## ✨ Features
-
-| Feature | Status | Description |
-|---------|--------|-------------|
-| 🏨 Hotel Search | ✅ | Search and filter hotels by destination, price, rating |
-| ✈️ Flight Search | ✅ | Compare flights with flexible date search |
-| 📋 Itinerary Planner | ✅ | Drag-and-drop trip planning with day-by-day organization |
-| ⭐ Reviews & Ratings | ✅ | Community reviews for destinations and hotels |
-| 🌤️ Weather Forecasts | ✅ | 5-day weather forecasts for any destination |
-| 💱 Currency Converter | ✅ | Real-time currency conversion for 30+ currencies |
-| 📝 Travel Blog | ✅ | Read and write travel stories and guides |
-| 🎨 Photo Collages | ✅ | AI-powered travel photo collage generator |
-| 📧 Email Invites | ✅ | Beautiful Pinterest-style trip invitation emails |
-| 🤖 Vibe Analysis | ✅ | AI-powered photo mood and vibe detection |
-| 📱 Mobile App | 🚧 | React Native companion app |
-
----
-
-## 🚀 Quick Start
+## Getting Started
 
 ### Prerequisites
+- Docker & Docker Compose
+- Node.js 18+ (for frontend development)
+- Python 3.11+ (for backend development)
 
-- **Node.js** >= 18.x
-- **Python** >= 3.11
-- **MongoDB** (local or Atlas)
-- **Git**
+### Quick Start with Docker
 
-### Backend Setup
+```bash
+# Clone the repository
+git clone https://github.com/SayAn1-dls/dk_travel.git
+cd dk_travel
 
+# Start all services
+docker compose up -d
+
+# Backend: http://localhost:8000
+# Frontend: http://localhost:3000
+# API Docs: http://localhost:8000/docs
+```
+
+### Manual Setup
+
+#### Backend
 ```bash
 cd backend
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate
 pip install -r requirements.txt
-cp .env.example .env  # Edit with your credentials
-uvicorn server:app --reload --port 8000
+uvicorn app.main:app --reload
 ```
 
-### Frontend Setup
-
+#### Frontend
 ```bash
 cd frontend
 npm install
 npm start
 ```
 
-The app will be available at `http://localhost:3000`.
-
----
-
-## 📁 Project Structure
+## Project Structure
 
 ```
 dk_travel/
-├── frontend/           # React SPA (CRA + Craco)
+├── backend/
+│   ├── app/
+│   │   ├── core/          # Config, exceptions, logging
+│   │   ├── models/        # Database & data models
+│   │   ├── routes/        # API endpoints
+│   │   ├── services/      # Business logic
+│   │   ├── middleware/    # Cache, rate limiting, auth
+│   │   └── db/            # Database & migrations
+│   ├── tests/             # Unit & integration tests
+│   ├── Dockerfile
+│   └── requirements.txt
+├── frontend/
 │   ├── src/
-│   │   ├── components/ # Reusable UI components
-│   │   ├── pages/      # Route pages
-│   │   ├── hooks/      # Custom React hooks
-│   │   ├── context/    # React Context providers
-│   │   ├── utils/      # Helper functions
-│   │   └── styles/     # Global styles & themes
-│   └── public/         # Static assets
-├── backend/            # FastAPI Python backend
-│   ├── routes/         # API route handlers
-│   ├── models/         # Pydantic & MongoDB models
-│   ├── middleware/     # Custom middleware
-│   ├── utils/          # Backend utilities
-│   ├── config/         # Configuration
-│   ├── tests/          # Pytest test suite
-│   └── scripts/        # Utility scripts
-├── mobile/             # React Native app (Expo)
-├── docs/               # API documentation
-├── .github/            # GitHub Actions & templates
-└── docker-compose.yml  # Container orchestration
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Page components
+│   │   ├── context/       # State management
+│   │   ├── services/      # API client
+│   │   └── utils/         # Helpers & formatters
+│   ├── Dockerfile
+│   └── package.json
+├── docker-compose.yml
+├── .github/workflows/     # CI/CD pipelines
+└── README.md
 ```
 
----
+## API Endpoints
 
-## 🛠️ Tech Stack
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/health` | GET | Health check |
+| `/api/v1/auth/register` | POST | User registration |
+| `/api/v1/auth/login` | POST | User login |
+| `/api/v1/destinations` | GET | List destinations |
+| `/api/v1/destinations/:id` | GET | Destination details |
+| `/api/v1/bookings` | POST | Create booking |
+| `/api/v1/bookings/:id` | GET | Booking details |
+| `/api/v1/reviews` | POST | Submit review |
+| `/api/v1/itineraries` | POST | Create itinerary |
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React 18, Tailwind CSS, Radix UI, React Router |
-| Backend | FastAPI, Pydantic, Motor (async MongoDB) |
-| Database | MongoDB (via Motor) |
-| AI/ML | Google Gemini (vibe analysis, photo processing) |
-| Email | Resend API, Gmail SMTP |
-| Mobile | React Native (Expo) |
-| DevOps | Docker, GitHub Actions |
-| Testing | Pytest (backend), Jest (frontend) |
-
----
-
-## 🧪 Running Tests
-
-```bash
-# Backend tests
-cd backend
-pytest --tb=short -v
-
-# Frontend tests
-cd frontend
-npm test
-```
-
----
-
-## 🤝 Contributing
-
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+## Contributing
 
 1. Fork the repository
 2. Create your feature branch (`git checkout -b feature/amazing-feature`)
@@ -166,22 +126,10 @@ We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guid
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
 
----
+## License
 
-## 📄 License
+This project is licensed under the MIT License.
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+## Author
 
----
-
-## 👏 Acknowledgements
-
-- [FastAPI](https://fastapi.tiangolo.com/) — Modern Python web framework
-- [React](https://reactjs.org/) — UI component library
-- [Tailwind CSS](https://tailwindcss.com/) — Utility-first CSS
-- [Radix UI](https://www.radix-ui.com/) — Accessible component primitives
-- [Google Gemini](https://ai.google.dev/) — AI capabilities
-
----
-
-<p align="center">Made with ❤️ by the Wanderly Team</p>
+**Sayan Bhatt** - [GitHub](https://github.com/SayAn1-dls)
