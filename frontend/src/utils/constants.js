@@ -1,31 +1,28 @@
 /**
- * Application-wide constants for DK Travel frontend.
+ * Application-wide constants
  */
 
 export const APP_NAME = 'DK Travel';
-export const APP_TAGLINE = 'Your journey, your way.';
 
-export const DESTINATIONS_PER_PAGE = 12;
-export const POPULAR_DESTINATIONS_LIMIT = 6;
+export const BASE_URL =
+  import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api/v1';
 
-export const BOOKING_STATUS = {
-  PENDING: 'pending',
-  CONFIRMED: 'confirmed',
-  CANCELLED: 'cancelled',
-  COMPLETED: 'completed',
+export const ITEMS_PER_PAGE = 12;
+
+export const BREAKPOINTS = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
 };
 
-export const SORT_OPTIONS = [
-  { label: 'Rating (High to Low)', value: 'rating', order: -1 },
-  { label: 'Price (Low to High)', value: 'price', order: 1 },
-  { label: 'Price (High to Low)', value: 'price', order: -1 },
-  { label: 'Name (A-Z)', value: 'name', order: 1 },
-];
+export const AUTH_TOKEN_KEY = 'dk_travel_token';
 
-export const PAYMENT_METHODS = [
-  { label: 'Credit Card', value: 'credit_card', icon: '💳' },
-  { label: 'Debit Card', value: 'debit_card', icon: '💳' },
-  { label: 'UPI', value: 'upi', icon: '📱' },
-  { label: 'Net Banking', value: 'net_banking', icon: '🏦' },
-  { label: 'Wallet', value: 'wallet', icon: '👛' },
-];
+export const ROUTES = {
+  HOME: '/',
+  LOGIN: '/login',
+  REGISTER: '/register',
+  DESTINATIONS: '/destinations',
+  TRIPS: '/trips',
+  PROFILE: '/profile',
+};
